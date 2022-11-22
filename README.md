@@ -136,7 +136,7 @@ Open `src/main/resources/application.properties`
 ```
 spring.datasource.url= jdbc:postgresql://localhost:5432/testdb
 spring.datasource.username= postgres
-spring.datasource.password= 123
+spring.datasource.password= postgres
 
 spring.jpa.properties.hibernate.jdbc.lob.non_contextual_creation= true
 spring.jpa.properties.hibernate.dialect= org.hibernate.dialect.PostgreSQLDialect
@@ -166,9 +166,25 @@ bezkoder.app.jwtExpirationMs= 86400000
 mvn spring-boot:run
 ```
 
+
+
+## Instruction
+
 ## Run following SQL insert statements
 ```
 INSERT INTO roles(name) VALUES('ROLE_USER');
 INSERT INTO roles(name) VALUES('ROLE_MODERATOR');
 INSERT INTO roles(name) VALUES('ROLE_ADMIN');
 ```
+
+
+## Access to Swagger
+http://localhost:8080/swagger-ui.html#!/
+
+
+## Get Token and Authozie with Swagger
+1. Use " /api/auth/signup" for create new user
+2. User " /api/auth/signin" for sign in
+3. After Singin you will get a JWT Token
+4. Put "Bearer " + Token in "Authozie" section. you can find "Authozie" Top left of page. then put "Bearer " + Token in "api_key" textbox. Then click "Authozie".
+5. From now you can access other APIs.
